@@ -7,3 +7,12 @@ for i in range(2, 200):
     if znak:
         print(i)
         prastevila.append(i)
+        12312
+        123
+        12
+        3
+
+        3
+        c = [1,2,3]
+        for k in c:
+            print(k)
