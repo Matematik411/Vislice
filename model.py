@@ -10,7 +10,7 @@ PORAZ = 'X'
 #glavni razred
 class Igra:
     def __init__(self, geslo, crke=[]):
-        self.geslo = geslo
+        self.geslo = geslo.upper()
         self.crke = crke
 
     
@@ -49,17 +49,18 @@ class Igra:
         return niz[:-1]
     
     def ugibaj(self, crka):
+        crka = crka.upper()
         if crka in self.crke:
             return PONOVLJENA_CRKA
-        elif crka in self.geslo:
-            self.crke += [crka]
-            if self.zmaga():
-                return True
-            return PRAVILNA_CRKA
         else:
             self.crke += [crka]
+        if crka in self.geslo:
+            if self.zmaga():
+                return ZMAGA
+            return PRAVILNA_CRKA
+        else:
             if self.poraz():
-                return True
+                return PORAZ
             return NAPACNA_CRKA
 
 
@@ -67,7 +68,7 @@ class Igra:
 
 
 test = 'požrtvovalnost'
-testne = ['a', 'b', 'e', 't']
+testne = ['A', 'B', 'E', 'T']
 zmaga = [a for a in test]
 igra = Igra(test, testne)
 print(igra.napacne_crke())
