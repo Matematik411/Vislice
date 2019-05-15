@@ -11,9 +11,12 @@ PORAZ = 'X'
 
 #glavni razred
 class Igra:
-    def __init__(self, geslo, crke=[]):
+    def __init__(self, geslo, crke=None):
         self.geslo = geslo
-        self.crke = crke
+        if crke is None:
+            self.crke = []
+        else:
+            self.crke = crke
 
     
     def napacne_crke(self):
