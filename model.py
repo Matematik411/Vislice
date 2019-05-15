@@ -1,3 +1,5 @@
+import random
+
 #konstante
 STEVILO_DOVOLJENIH_NAPAK = 10
 PRAVILNA_CRKA = '+'
@@ -10,7 +12,7 @@ PORAZ = 'X'
 #glavni razred
 class Igra:
     def __init__(self, geslo, crke=[]):
-        self.geslo = geslo.upper()
+        self.geslo = geslo
         self.crke = crke
 
     
@@ -67,18 +69,25 @@ class Igra:
 
 
 
-test = 'požrtvovalnost'
-testne = ['A', 'B', 'E', 'T']
-zmaga = [a for a in test]
-igra = Igra(test, testne)
-print(igra.napacne_crke())
-print(igra.pravilne_crke())
-print(igra.zmaga())
-print(igra.pravilni_del_gesla())
-zmagovalna = Igra(test, zmaga)
-print(zmagovalna.zmaga())
+
+#test = 'požrtvovalnost'.upper()
+#testne = ['A', 'B', 'E', 'T']
+#zmaga = [a for a in test]
+#igra = Igra(test, testne)
+#print(igra.napacne_crke())
+#print(igra.pravilne_crke())
+#print(igra.zmaga())
+#print(igra.pravilni_del_gesla())
+#zmagovalna = Igra(test, zmaga)
+#print(zmagovalna.zmaga())
 
 
+
+with open('besede.txt', 'r', encoding='utf-8') as dat:
+    bazen_besed = [vrstica.strip().upper()  for vrstica in dat]
+
+def nova_igra():
+    return Igra(random.choice(bazen_besed))
 
 
 
