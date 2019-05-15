@@ -42,6 +42,7 @@ class Igra:
                 niz += a
             else:
                 niz += '_'
+            niz += ' '
         return niz
     
     def nepravilni_ugibi(self):
