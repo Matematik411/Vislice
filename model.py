@@ -7,6 +7,7 @@ PONOVLJENA_CRKA = 'o'
 NAPACNA_CRKA = '-'
 ZMAGA = 'W'
 PORAZ = 'X'
+ZACETEK = 'S'
 
 
 #glavni razred
@@ -86,7 +87,7 @@ class Igra:
 #print(zmagovalna.zmaga())
 
 
-
+#igranje
 with open('besede.txt', 'r', encoding='utf-8') as dat:
     bazen_besed = [vrstica.strip().upper()  for vrstica in dat]
 
@@ -95,8 +96,29 @@ def nova_igra():
 
 
 
-    
 
+#nadzor iger
+class Vislice:
+
+    def __init__(self):
+        self.igre = {}
+
+    def prost_id_igre(self):
+        if len(self.igre) == 0:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
+
+    def nova_igra(self):
+        id_igre = self.prost_id_igre()
+        igra = nova_igra()
+        self.igre[id_igre] = (igra, ZACETEK)
+        return id_igre
+
+    def ugibaj(self, id_igre, crka):
+        igra = self.igre[id_igre][0]
+        novo_stanje = igra.ugibaj(crka)
+        self.igre[id_igre] = (igra, novo_stanje)
 
 
 
