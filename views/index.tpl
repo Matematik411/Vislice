@@ -7,7 +7,7 @@
     <small>UVP Vaje, maj 2019</small>
   </blockquote>
 
-  <form action="/igra/" method="post">
+  <form action="/nova_igra/" method="post">
     <button type="submit">Nova igra</button>
   </form>
 
