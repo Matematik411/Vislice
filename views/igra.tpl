@@ -1,8 +1,5 @@
 % import model
-<!DOCTYPE html>
-<html>
-
-<body>
+% rebase ('base.tpl', title = 'Vislice')
 
   <h1>Vislice</h1>
 
@@ -49,6 +46,3 @@
     </form>
 % end
 
-
-</body>
-</html>
